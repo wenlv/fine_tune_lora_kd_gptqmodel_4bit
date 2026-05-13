@@ -1,0 +1,18 @@
+[project]
+name = "fine-tune-lora-kd-gptqmodel-4bit"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "dotenv>=0.9.9",
+    "modelscope>=1.36.3",
+    "sentence-transformers>=5.5.0",
+    "torch>=2.2.2",
+    "transformers>=5.8.1",
+]
+
+[tool.uv]
+required-environments=[
+    "sys_platform == 'darwin' and platform_machine == 'x86_64'"
+]

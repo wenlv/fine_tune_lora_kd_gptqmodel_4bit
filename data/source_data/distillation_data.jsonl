@@ -1,0 +1,8 @@
+[
+    {"prompt": "解释知识蒸馏的原理", "response": "知识蒸馏通过教师模型的概率分布指导学生模型学习，以保持性能。"},
+    {"prompt": "什么是 QLoRA？", "response": "QLoRA 是在4bit量化权重上进行LoRA微调的方法，显存占用更低。"},
+    {"prompt": "量化蒸馏的作用是什么？", "response": "教师模型的指导可以弥补低比特学生模型精度损失。"},
+    {"prompt": "为什么要在低比特模型上用KD？", "response": "KD帮助学生学习教师分布，使低精度模型更稳定、更准确。"},
+    {"prompt": "LoRA和QAT的区别", "response": "LoRA用于微调学习知识，QAT用于适配量化不掉精度。"},
+    {"prompt": "GPTQ 4bit的优势", "response": "GPTQ 4bit能把模型显存降低75%，速度更快，生产部署首选。"},
+]

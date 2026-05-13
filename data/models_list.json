@@ -1,0 +1,12 @@
+[
+  {"modelName": "Qwen1.5-1.8B-Chat","modelID": "qwen/Qwen1.5-1.8B-Chat"},
+  {"modelName": "Qwen2-0.5B-Instruct","modelID": "qwen/Qwen2-0.5B-Instruct"},
+  {"modelName": "Qwen2.5-7B-Instruct","modelID": "Qwen/Qwen2.5-7B-Instruct"},
+  {"modelName": "Qwen1.5-1.8B-Chat-GPTQ-Int4","modelID": "qwen/Qwen1.5-1.8B-Chat-GPTQ-Int4"},
+  {"modelName": "Qwen2.5-VL-3B-Instruct","modelID": "Qwen/Qwen2.5-VL-3B-Instruct"},
+  {"modelName": "paraphrase-multilingual-MiniLM-L12-v2","modelID": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"},
+  {"modelName": "Bbge-m3","modelID": "BAAI/bge-m3"},
+  {"modelName": "toxic-bert","modelID": "unitary/toxic-bert","description": "毒性检测模型"},
+  {"modelName": "nlp_bert_base_zh_llm_risk_detectio","modelID": "damo/nlp_bert_base_zh_llm_risk_detection","description": "阿里风险检测模型"},
+  {"modelName": "bert-base-chinese","modelID": "bert-base-chinese","description": "阿里风险检测模型"}
+]
