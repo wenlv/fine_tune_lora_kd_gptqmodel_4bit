@@ -23,6 +23,7 @@ local_dir=f"{base_model}"
 # 下载失败的模型列表
 fail_model_list=[]
 
+
 # 从文件中读取要下载的模型信息
 print('从文件中读取要下载的模型信息')
 
@@ -77,15 +78,15 @@ def check_quantize_config(local_dir):
         print("   ✅ GPTQ 配置文件已存在")
 
 
-def load_model():
+def load_model(total):
     # 批量下载所有模型
     print("开始批量下载模型...")
 
-    for mode_info in models_list:
+    for k,mode_info in enumerate(models_list):
         model_name = mode_info.get('modelName', '未知模型')
         model_id = mode_info.get('modelID', '')
 
-        print(f"正在下载: {model_name}")
+        print(f"正在下载 {k+1}/{total}: {model_name}")
 
         model_path = os.path.join(base_model, model_name)
 
@@ -114,13 +115,14 @@ def load_model():
 
 # ===================== 执行下载 =====================
 if __name__ == "__main__":
-    load_model()
+    total = len(models_list)
+
+    load_model(total)
 
     # 最终统计
     print("\n" + "="*60)
     print("所有模型处理完成！")
     print("="*60)
-    total = len(models_list)
     success = total - len(fail_model_list)
     fail = len(fail_model_list)
     print(f'总计：{total} 个 | 成功：{success} 个 | 失败：{fail} 个')
