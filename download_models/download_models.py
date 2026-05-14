@@ -31,9 +31,9 @@ try:
     with open(models_list_path,'r',encoding='utf-8') as f:
         models_list=json.load(f)
 
-    print(f'读取成功: 共找到 {len(models_list)} 个模型需要下载')
+    print(f'✅ 读取成功: 共找到 {len(models_list)} 个模型需要下载')
 except Exception as e:
-    print(f'模型信息读取失败: {str(e)}')
+    print(f'❌ 模型信息读取失败: {str(e)}')
     exit(1)
 
 def model_scope_load(model_id,local_dir,model_name):
@@ -44,7 +44,7 @@ def model_scope_load(model_id,local_dir,model_name):
         revision='master',  # 可选，指定版本，默认为 'master'
         ignore_patterns=["imgs/*", "*.DS_Store"]
     )
-    print(f"ModelScope 下载成功: {model_name} -> {model_dir}")
+    print(f"✅ ModelScope 下载成功: {model_name} -> {model_dir}")
 
 def hugging_face_load(model_id,local_dir,model_name):
     """从 HuggingFace 下载分类模型并保存"""
@@ -53,13 +53,13 @@ def hugging_face_load(model_id,local_dir,model_name):
     model.save_pretrained(local_dir)
     tokenizer.save_pretrained(local_dir)
 
-    print(f"HuggingFace 下载成功: {model_name}")
+    print(f"✅ HuggingFace 下载成功: {model_name}")
 
 def check_quantize_config(local_dir):
     """手动创建手动创建 GPTQ 模型的 quantize_config.json"""
     quantize_config_path = os.path.join(local_dir, 'quantize_config.json')
     if not os.path.exists(quantize_config_path):
-        print("     正在创建 GPTQ 配置文件 quantize_config.json...")
+        print("正在创建 GPTQ 配置文件 quantize_config.json...")
         config = {
             "bits": 4,
             "group_size": 128,
@@ -75,7 +75,7 @@ def check_quantize_config(local_dir):
 
         print(f"✅ 配置文件创建完成: {quantize_config_path}")
     else:
-        print("   ✅ GPTQ 配置文件已存在")
+        print("✅ GPTQ 配置文件已存在")
 
 
 def load_model(total):
@@ -95,7 +95,7 @@ def load_model(total):
                 # 优先从 ModelScope 下载
                 model_scope_load(model_id,model_path,model_name)
             except Exception as e:
-                print(f"ModelScope 下载失败，尝试 HuggingFace: {str(e)}")
+                print(f"❌ ModelScope 下载失败，尝试 HuggingFace: {str(e)}")
                 try:
                     # 降级从 HuggingFace 下载
                     hugging_face_load(model_id,model_path,model_name)
